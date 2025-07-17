@@ -1,5 +1,5 @@
-import { getDb } from '../src/db';
-import { addNode, getTree } from '../src/services/treeService';
+import { getDb } from '../db';
+import { addNode, getTree } from './treeService';
 import Database from 'better-sqlite3';
 
 describe('treeService', () => {
