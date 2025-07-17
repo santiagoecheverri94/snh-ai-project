@@ -1,13 +1,22 @@
 import { Router } from 'express';
+import { addNode, getTree } from '../services/treeService';
+import { getDb } from '../db';
 
 export const router = Router();
+const db = getDb();
 
-// GET /api/tree placeholder
 router.get('/', (req, res) => {
-  res.json([]);
+  const tree = getTree(db);
+  res.json(tree);
 });
 
-// POST /api/tree placeholder
 router.post('/', (req, res) => {
-  res.status(201).json({ id: 1 });
+  const { label, parentId } = req.body;
+  
+  try {
+    const id = addNode(db, label, parentId ?? null);
+    res.status(201).json({ id });
+  } catch (err) {
+    res.status(400).json({ error: (err as Error).message });
+  }
 });
