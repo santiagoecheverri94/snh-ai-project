@@ -7,9 +7,30 @@ export interface TreeNode {
   children: TreeNode[];
 }
 
-export function addNode(db: Database.Database, label: string, parentId: number | null): number {
+export function addNode(
+  db: Database.Database,
+  label: string,
+  parentId: number | null
+): number {
   if (typeof label !== 'string' || !label.trim()) {
     throw new Error('Missing or invalid `label`');
+  }
+
+  // If parentId is set, check it's a positive number and exists
+  if (parentId !== null) {
+    if (
+      typeof parentId !== 'number' ||
+      !Number.isInteger(parentId) ||
+      parentId <= 0
+    ) {
+      throw new Error('`parentId` must be a positive integer');
+    }
+    const parent = db
+      .prepare('SELECT id FROM tree_nodes WHERE id = ?')
+      .get(parentId);
+    if (!parent) {
+      throw new Error('Specified `parentId` does not exist');
+    }
   }
 
   const stmt = db.prepare(

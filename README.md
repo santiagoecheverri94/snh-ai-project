@@ -3,7 +3,7 @@
 **Live Demo:**  
 A demo UI is hosted at: [https://santiago-snh-ai.up.railway.app/](https://santiago-snh-ai.up.railway.app/)
 
-Live API Demo can be accessed at (GET and POST supported):
+Live API Demo (Supporting GET and POST Methods) can be accessed at:
 
 - [https://santiago-snh-ai.up.railway.app/api/tree](https://santiago-snh-ai.up.railway.app/api/tree)
 
@@ -19,6 +19,14 @@ This project implements a production-grade HTTP API for managing tree data struc
 **A simple Vue.js UI** is provided as a bonus for interactive testing and demonstration.
 
 ---
+
+## Framework Choice: TypeScript + Node.js + Express
+
+- **TypeScript:** Ensures robust type safety and better developer experience, reducing bugs and improving code clarity..
+- **Node.js:** Provides good-enough performance and is widely used for backend services, making it easy for other developers to understand and extend. If higher performance was required, Golang would be an acceptable alternative.
+- **Express:** It's the de facto standard for HTTP servers in Node.js. It's minimal, fast, and well-supported.
+
+This combination is recognized industry-wide as a straightforward way to build reliable production APIs, especially for projects that require fast iteration.
 
 ## Testing Approach
 
@@ -46,11 +54,11 @@ This project implements a production-grade HTTP API for managing tree data struc
 ## Build & Run Instructions
 
 **Prerequisite:**  
-Node.js 24.4.0 installed
+[Node.js 24.4.0](https://nodejs.org/dist/v24.4.0/) needs to be installed
 
 **Steps:**
 1. git clone https://github.com/santiagoecheverri94/snh-ai-project.git
-1. cd snh-ai-project
+1. cd `snh-ai-project`
 1. npm install
 1. npm run build
 1. npm run start
@@ -59,7 +67,7 @@ Node.js 24.4.0 installed
 
 ## API Endpoints
 
-- The Bonus UI is now accessible on `http://localhost:3000/`
+- After `npm run start`, the Bonus UI is accessible on `http://localhost:3000/`
 - The API endpoints are accessible on:
 
 | Method | Endpoint        | Description                                  |
@@ -69,4 +77,10 @@ Node.js 24.4.0 installed
 
 ---
 
-**Thank you for reviewing this challenge!**
+## Testing
+
+run `npm test`
+
+---
+
+**Thank you for reviewing my assessment!**
